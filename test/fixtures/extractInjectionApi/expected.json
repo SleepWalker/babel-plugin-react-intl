@@ -3,5 +3,17 @@
     "id": "foo.bar.baz",
     "description": "The default message.",
     "defaultMessage": "Hello World!"
+  },
+  {
+    "id": "props.intl",
+    "defaultMessage": "Test access from props"
+  },
+  {
+    "id": "this.props.intl",
+    "defaultMessage": "Test access from this.props"
+  },
+  {
+    "id": "this.intl",
+    "defaultMessage": "Text access from this"
   }
 ]

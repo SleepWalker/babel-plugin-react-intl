@@ -383,7 +383,13 @@ export default function ({types: t}) {
                 } else if (
                     extractInjectionApi &&
                     t.isMemberExpression(callee.node, { computed: false }) &&
-                    t.isIdentifier(callee.node.object, { name: 'intl' }) &&
+                    (
+                        // intl.formatMessage
+                        t.isIdentifier(callee.node.object, { name: 'intl' }) || (
+                            // foo.intl.formatMessage
+                            t.isIdentifier(callee.node.object.property, { name: 'intl' })
+                        )
+                    ) &&
                     t.isIdentifier(callee.node.property, { name: 'formatMessage' })
                 ) {
                     // parse intl.formatMessage calls
